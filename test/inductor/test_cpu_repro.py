@@ -1482,9 +1482,7 @@ class CPUReproTests(TestCase):
             q = F.pad(v, (0, 0, 0, 0, 0, 58), value=0.5)
             return torch.matmul(q, p)
 
-        x = torch.randn(1, 8, 66, 66).contiguous(
-            memory_format=torch.channels_last
-        )
+        x = torch.randn(1, 8, 66, 66).contiguous(memory_format=torch.channels_last)
         self.common(fn, (x,))
 
     @requires_vectorization
